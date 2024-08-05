@@ -10,7 +10,9 @@ const useVideoContainer = () => {
   }, []);
 
   const getVideos = async () => {
-    const data = await fetch(`${YOUTUBE_VIDEO_API} ${process.env.GOOGLE_API_KEY}`);
+    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+    const url = `${YOUTUBE_VIDEO_API}${apiKey}`;
+    const data = await fetch(url);
     const json = await data.json();
     console.log(json)
     disptach(addVideoContainer(json));

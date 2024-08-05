@@ -9,4 +9,10 @@ export const YOUTUBE_VIDEO_API = `https://youtube.googleapis.com/youtube/v3/vide
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
+export const YOUTUBE_COMMENT_API = `https://www.googleapis.com/youtube/v3/commentThreads?key=${process.env.REACT_APP_GOOGLE_API_KEY}&textFormat=plainText&part=snippet,replies&maxResults=10&videoId=`
+ 
+export const SEARCH_SUGGESTION_API = `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_GOOGLE_API_KEY}&part=snippet&maxResults=2&type=video&q=`
+
+export const YOUTUBE_CHANNEL_API = `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics,contentDetails&key=${process.env.REACT_APP_GOOGLE_API_KEY}&id=`
+
 export const OFFSET_LIVE_CHAT = 10;

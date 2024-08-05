@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { YOUTUBE_CHANNEL_API } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addChannelInfo, addDescription } from "../Redux/channelInfoSlice";
 import { useSearchParams } from "react-router-dom";
@@ -36,7 +37,7 @@ const useChannelInfo = () => {
       localStorage.setItem("channelQuery", JSON.stringify(query));
 
       const res = await fetch(
-        `${process.env.YOUTUBE_CHANNEL_API}${query?.snippet?.channelId}`
+        `${YOUTUBE_CHANNEL_API}${query?.snippet?.channelId}`
       );
       const data = await res.json();
       dispatch(addChannelInfo(data));
