@@ -45,7 +45,8 @@ const Header = () => {
 
   const getSearchSuggestions = async () => {
     try {
-      const response = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const apiUrl = `${YOUTUBE_SEARCH_API}${searchQuery}`;
+      const response = await fetch(apiUrl);
       const json = await response.json();
       setSuggestions(json[1]);
       dispatch(cacheResults({ [searchQuery]: json[1] }));
