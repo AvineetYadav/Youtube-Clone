@@ -1,7 +1,6 @@
 import useCount from "../hooks/useCount";
 
 const SearchVideoCards = ({ info }) => {
-  console.log(info)
   return (
     <div className="flex">
       <div className=" p-2 m-2  rounded-lg overflow-hidden">
