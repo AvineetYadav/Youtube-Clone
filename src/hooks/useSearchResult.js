@@ -12,7 +12,7 @@ const useSearchResult = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(process.env.SEARCH_SUGGESTION_API + query);
+      const res = await fetch(`${process.env.SEARCH_SUGGESTION_API} ${query}`);
       const data = await res.json();
       setSearchAPiData(data?.items);
     } catch (error) {

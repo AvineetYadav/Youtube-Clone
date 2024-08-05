@@ -13,7 +13,7 @@ const Comment = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(process.env.YOUTUBE_COMMENT_API + `${videoId.get("v")}`);
+      const res = await fetch(`${process.env.YOUTUBE_COMMENT_API} ${videoId.get("v")}`);
       const data = await res.json();
       setComments(
         data.items.map((comment) => ({ ...comment, showReplies: false }))
