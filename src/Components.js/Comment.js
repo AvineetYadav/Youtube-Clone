@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_COMMENT_API } from "../utils/constant";
 import DISLIKE from "../assets/dislike-svgrepo-com.svg";
 import LIKE from "../assets/like-1-svgrepo-com.svg";
 import { useSearchParams } from "react-router-dom";
@@ -14,7 +13,7 @@ const Comment = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(YOUTUBE_COMMENT_API + `${videoId.get("v")}`);
+      const res = await fetch(process.env.YOUTUBE_COMMENT_API + `${videoId.get("v")}`);
       const data = await res.json();
       setComments(
         data.items.map((comment) => ({ ...comment, showReplies: false }))
