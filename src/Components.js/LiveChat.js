@@ -37,6 +37,7 @@ const LiveChat = () => {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(addMessage({ name: "Avineet", message: liveMessage }));
+          setLiveMessage(``)
         }}
       >
         <input

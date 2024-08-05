@@ -12,8 +12,7 @@ export const GOOGLE_API_KEY = `AIzaSyADJ7MmFHcUoXs0A3aM_E4Kw7c9GB9rkdY
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
-export const SEARCH_SUGGESTION_API = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyADJ7MmFHcUoXs0A3aM_E4Kw7c9GB9rkdY
-&part=snippet&maxResults=2&type=video&q=`;
+export const SEARCH_SUGGESTION_API = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyADJ7MmFHcUoXs0A3aM_E4Kw7c9GB9rkdY&part=snippet&maxResults=10&type=video&q=`;
 
 export const YOUTUBE_COMMENT_API = `https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyADJ7MmFHcUoXs0A3aM_E4Kw7c9GB9rkdY
 &textFormat=plainText&part=snippet,replies&maxResults=10&videoId=`;
