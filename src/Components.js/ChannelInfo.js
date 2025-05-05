@@ -54,41 +54,41 @@ const ChannelInfo = () => {
             </div>
 
             {/* Like, Dislike, Share, and Download buttons - Only on big screen */}
-            <div className="hidden md:flex items-center gap-4">
-              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+            <div className="hidden md:flex items-center gap-4 text-xs">
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1 px-2 rounded-full hover:bg-gray-300">
                 <img src={LIKE} className="w-4 h-4" alt="Like" />
                 {likeCount || `Like`}
               </button>
-              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1 px-2 rounded-full hover:bg-gray-300">
                 <img src={DILIKE} className="w-4 h-4" alt="Dislike" />
                 Dislike
               </button>
-              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1 px-2 rounded-full hover:bg-gray-300">
                 <img src={SHARE} className="w-4 h-4" alt="Share" />
                 Share
               </button>
-              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1 px-2 rounded-full hover:bg-gray-300">
                 <img src={DOWNLOAD} className="w-4 h-4" alt="Download" />
                 Download
               </button>
             </div>
           </div>
 
-          {/* For smaller screens, make the buttons stack */}
-          <div className="flex md:hidden gap-4 mt-4">
-            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+          {/* For smaller screens, keep buttons in one row without wrapping */}
+          <div className="md:hidden mt-4 flex flex-nowrap gap-2 justify-between">
+            <button className="flex items-center gap-1 bg-gray-200 text-xs font-semibold py-1 px-2 rounded-full hover:bg-gray-300 w-auto">
               <img src={LIKE} className="w-4 h-4" alt="Like" />
               {likeCount || `Like`}
             </button>
-            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+            <button className="flex items-center gap-1 bg-gray-200 text-xs font-semibold py-1 px-2 rounded-full hover:bg-gray-300 w-auto">
               <img src={DILIKE} className="w-4 h-4" alt="Dislike" />
               Dislike
             </button>
-            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+            <button className="flex items-center gap-1 bg-gray-200 text-xs font-semibold py-1 px-2 rounded-full hover:bg-gray-300 w-auto">
               <img src={SHARE} className="w-4 h-4" alt="Share" />
               Share
             </button>
-            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+            <button className="flex items-center gap-1 bg-gray-200 text-xs font-semibold py-1 px-2 rounded-full hover:bg-gray-300 w-auto">
               <img src={DOWNLOAD} className="w-4 h-4" alt="Download" />
               Download
             </button>

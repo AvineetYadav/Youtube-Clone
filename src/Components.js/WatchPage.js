@@ -15,8 +15,8 @@ const WatchPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="flex flex-col lg:flex-row w-full max-w-7xl">
+    <div className="w-full flex flex-col items-center px-4 sm:px-6 md:px-8 lg:px-0">
+      <div className="flex flex-col lg:flex-row w-full max-w-7xl mx-auto">
         <div className="flex-grow lg:w-3/4">
           <div className="relative overflow-hidden">
             <iframe
