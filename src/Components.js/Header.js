@@ -26,7 +26,7 @@ const Header = () => {
   const handleClick = (suggestion) => {
     dispatch(addSearchValue(suggestion));
     setSearchQuery(suggestion);
-    navigate(`/searchResult`);
+    navigate("/searchResult");
   };
 
   useEffect(() => {
@@ -56,34 +56,41 @@ const Header = () => {
   };
 
   return (
-    <div className="sticky top-0 left-0 right-0 py-4 bg-white z-10">
+    <div className="sticky top-0 left-0 right-0 py-4 bg-white z-50">
       <div className="flex justify-between items-center gap-4 px-4">
-        <div className="flex items-center gap-5">
-          <img
-            onClick={toggleMenuHandler}
-            className="h-6 cursor-pointer"
-            alt="menu"
-            src={HAMBURGER_ICON}
-          />
-          <a href="/">
-            <img className="h-6" alt="youtube-logo" src={YOUTUBE_LOGO} />
-          </a>
-        </div>
-        <div className="flex-1 flex justify-center px-4">
-          <div className="relative">
+      <div className="flex items-center gap-3 sm:gap-5">
+  <img
+    onClick={toggleMenuHandler}
+    className="h-6 cursor-pointer"
+    alt="menu"
+    src={HAMBURGER_ICON}
+  />
+  <a href="/">
+    <img
+      className="h-6 hidden sm:block"
+      alt="youtube-logo"
+      src={YOUTUBE_LOGO}
+    />
+  </a>
+</div>
+
+
+        {/* Centering the search input */}
+        <div className="flex-1 flex justify-center px-2">
+          <div className="relative flex items-center w-full max-w-3xl">
             <input
-              className="px-5 border border-gray-400 p-2 rounded-l-full w-96"
+              className="px-5 border border-gray-400 p-2 rounded-l-full w-11/12 sm:w-11/12 md:w-1/2 lg:w-screen xl:w-screen"
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setShowSuggestions(true)}
               onBlur={() => setShowSuggestions(false)}
             />
-            <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
+            <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100 flex items-center justify-center sm:w-auto">
               🔍
             </button>
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute bg-white py-2 px-2 w-full shadow-lg rounded-lg border border-gray-100">
+              <div className="absolute bg-white py-2 px-2 w-full shadow-lg rounded-lg border border-gray-100 z-10">
                 <ul>
                   {suggestions.map((sug) => (
                     <li
@@ -99,7 +106,9 @@ const Header = () => {
             )}
           </div>
         </div>
-        <div className="flex items-center gap-5">
+
+        {/* Add responsive logic here */}
+        <div className="flex items-center gap-5 hidden sm:flex">
           <img className="h-8" alt="upload" src={UPLOAED} />
           <img className="h-8" alt="notifications" src={NOTIFICATION} />
           <img className="h-8" alt="user" src={USER_ICON} />

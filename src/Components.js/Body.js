@@ -3,11 +3,9 @@ import { Outlet } from "react-router-dom";
 
 const Body = () => {
   return (
-    <div >
-      <div className="flex">
+    <div className="flex max-w-full overflow-hidden">
       <SliderBar />
       <Outlet />
-      </div>
     </div>
   );
 };

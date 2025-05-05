@@ -7,14 +7,14 @@ import SHARE from "../assets/share-2-svgrepo-com.svg";
 import DOWNLOAD from "../assets/download-svgrepo-com.svg";
 import useChannelInfo from "../hooks/useChannelInfo";
 import useCount from "../hooks/useCount";
-import Shimmer from "./Shimmer"
+import Shimmer from "./Shimmer";
 
 const ChannelInfo = () => {
   const info = useSelector((store) => store?.channelInfo?.channelInfo);
   const description = useSelector((store) => store?.channelInfo?.description);
-  const loading = useChannelInfo(); 
+  const loading = useChannelInfo();
 
-  const infoItem = info?.items?.[0]; 
+  const infoItem = info?.items?.[0];
   const subscriberCount = useCount(infoItem?.statistics?.subscriberCount || 0);
   const likeCount = useCount(description?.statistics?.likeCount || 0);
   const viewCount = useCount(description?.statistics?.viewCount || 0);
@@ -25,7 +25,7 @@ const ChannelInfo = () => {
   return (
     <div className="py-4 px-4">
       {loading ? (
-        <Shimmer/>
+        <Shimmer />
       ) : (
         <div>
           <div className="pb-2 font-semibold text-lg">
@@ -52,29 +52,48 @@ const ChannelInfo = () => {
                 Subscribe
               </button>
             </div>
-            <div className="button-container flex gap-4 mt-4 md:mt-0">
-              <div className="flex gap-2 items-center">
-                <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
-                  <img src={LIKE} className="w-4 h-4" alt="Like" />
-                  {likeCount || `Like`}
-                </button>
-                <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
-                  <img src={DILIKE} className="w-4 h-4" alt="Dislike" />
-                  Dislike
-                </button>
-              </div>
-              <div className="flex gap-2 items-center">
-                <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
-                  <img src={SHARE} className="w-4 h-4" alt="Share" />
-                  Share
-                </button>
-                <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
-                  <img src={DOWNLOAD} className="w-4 h-4" alt="Download" />
-                  Download
-                </button>
-              </div>
+
+            {/* Like, Dislike, Share, and Download buttons - Only on big screen */}
+            <div className="hidden md:flex items-center gap-4">
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+                <img src={LIKE} className="w-4 h-4" alt="Like" />
+                {likeCount || `Like`}
+              </button>
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+                <img src={DILIKE} className="w-4 h-4" alt="Dislike" />
+                Dislike
+              </button>
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+                <img src={SHARE} className="w-4 h-4" alt="Share" />
+                Share
+              </button>
+              <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300">
+                <img src={DOWNLOAD} className="w-4 h-4" alt="Download" />
+                Download
+              </button>
             </div>
           </div>
+
+          {/* For smaller screens, make the buttons stack */}
+          <div className="flex md:hidden gap-4 mt-4">
+            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+              <img src={LIKE} className="w-4 h-4" alt="Like" />
+              {likeCount || `Like`}
+            </button>
+            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+              <img src={DILIKE} className="w-4 h-4" alt="Dislike" />
+              Dislike
+            </button>
+            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+              <img src={SHARE} className="w-4 h-4" alt="Share" />
+              Share
+            </button>
+            <button className="flex items-center gap-1 bg-gray-200 text-sm font-semibold py-1.5 px-3 rounded-full hover:bg-gray-300 w-full">
+              <img src={DOWNLOAD} className="w-4 h-4" alt="Download" />
+              Download
+            </button>
+          </div>
+
           <div className="bg-[#f3f4f6] p-4 rounded-lg mt-4 text-sm font-semibold">
             <div className="pb-2 text-md">
               {viewCount} views

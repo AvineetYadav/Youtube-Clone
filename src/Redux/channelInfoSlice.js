@@ -10,7 +10,7 @@ const channelInfoSlice = createSlice({
     addDescription: (state, action) => {
       state.description = action.payload;
     },
-  },
+  }
 });
 
 export default channelInfoSlice.reducer;
