@@ -45,8 +45,9 @@ const Header = () => {
 
   const getSearchSuggestions = async () => {
     try {
-      const apiUrl = `${YOUTUBE_SEARCH_API}${searchQuery}`;
-      const response = await fetch(apiUrl);
+      const response = await fetch(
+        `https://auto-suggestion-api.vercel.app/search?q=${encodeURIComponent(searchQuery)}`
+      );
       const json = await response.json();
       setSuggestions(json[1]);
       dispatch(cacheResults({ [searchQuery]: json[1] }));
@@ -58,22 +59,21 @@ const Header = () => {
   return (
     <div className="sticky top-0 left-0 right-0 py-4 bg-white z-50">
       <div className="flex justify-between items-center gap-4 px-4">
-      <div className="flex items-center gap-3 sm:gap-5">
-  <img
-    onClick={toggleMenuHandler}
-    className="h-6 cursor-pointer"
-    alt="menu"
-    src={HAMBURGER_ICON}
-  />
-  <a href="/">
-    <img
-      className="h-6 hidden sm:block"
-      alt="youtube-logo"
-      src={YOUTUBE_LOGO}
-    />
-  </a>
-</div>
-
+        <div className="flex items-center gap-3 sm:gap-5">
+          <img
+            onClick={toggleMenuHandler}
+            className="h-6 cursor-pointer"
+            alt="menu"
+            src={HAMBURGER_ICON}
+          />
+          <a href="/">
+            <img
+              className="h-6 hidden sm:block"
+              alt="youtube-logo"
+              src={YOUTUBE_LOGO}
+            />
+          </a>
+        </div>
 
         {/* Centering the search input */}
         <div className="flex-1 flex justify-center px-2">
@@ -89,8 +89,9 @@ const Header = () => {
             <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100 flex items-center justify-center sm:w-auto">
               🔍
             </button>
+
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute bg-white py-2 px-2 w-full shadow-lg rounded-lg border border-gray-100 z-10">
+              <div className="absolute top-full left-0 bg-white py-2 px-2 w-full shadow-lg rounded-lg border border-gray-100 z-10">
                 <ul>
                   {suggestions.map((sug) => (
                     <li
@@ -107,7 +108,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Add responsive logic here */}
+        {/* Icons section */}
         <div className="flex items-center gap-5 hidden sm:flex">
           <img className="h-8" alt="upload" src={UPLOAED} />
           <img className="h-8" alt="notifications" src={NOTIFICATION} />
