@@ -11,49 +11,49 @@ const VideoContainer = () => {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  // Update screen width on resize
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Logic to determine padding-left or padding-right based on screen width
   let paddingLeft = "";
   let paddingRight = "";
 
-  // Apply different paddings based on the screen width
   if (screenWidth === 414) {
-    paddingLeft = "7px"; // For screens exactly 414px
+    paddingLeft = "7px";
   } else if (screenWidth === 412) {
-    paddingLeft = "5px"; // For screens exactly 375px
+    paddingLeft = "5px";
   } else if (screenWidth === 375) {
-    paddingRight = "0px"; // For screens exactly 375px
+    paddingRight = "0px";
   } else if (screenWidth === 390) {
-    paddingRight = "0px"; // For screens exactly 390px
+    paddingRight = "0px";
   } else if (screenWidth === 360) {
-    paddingRight = "12px"; // For screens exactly 360px
+    paddingRight = "12px";
   } else if (screenWidth === 344) {
-    paddingLeft = "8px"; // For screens exactly 344px
+    paddingLeft = "8px";
   } else if (screenWidth === 430) {
-    paddingLeft = "13px"; // For screens exactly 430px
+    paddingLeft = "13px";
   }
 
   return (
-    <div
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4"
-      style={{
-        paddingLeft: paddingLeft, // Applying padding-left based on screen width
-        paddingRight: paddingRight, // Applying padding-right based on screen width
-      }}
-    >
-      {videos?.map((video) => (
-        <Link key={video?.id} to={"/watch?v=" + video?.id} className="flex-shrink-0">
-          <VideoCards info={video} />
-        </Link>
-      ))}
+    <div className="w-full px-2">
+      <div
+        className="flex justify-center sm:justify-start"
+        style={{
+          paddingLeft: paddingLeft,
+          paddingRight: paddingRight,
+        }}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-screen-sm w-full">
+          {videos?.map((video) => (
+            <Link key={video?.id} to={"/watch?v=" + video?.id} className="flex-shrink-0">
+              <VideoCards info={video} />
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
