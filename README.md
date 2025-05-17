@@ -1,8 +1,8 @@
 # 🎮 YouTube Clone
 
-A **desktop-only** responsive YouTube clone built using modern web technologies. This project replicates essential YouTube functionalities like live chat, search, video descriptions, and comments, offering an immersive video streaming experience.
+A **Fully Responsive**  YouTube clone built using modern web technologies. This project replicates essential YouTube functionalities like live chat, search, video descriptions, and comments, offering an immersive video streaming experience.
 
-![YouTube Clone Preview](https://your-image-url.com/preview.png)
+![YouTube Clone Preview][(https://your-image-url.com/preview.png)](https://youtube-clone-two-ivory.vercel.app/)
 
 ---
 
